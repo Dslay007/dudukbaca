@@ -224,12 +224,12 @@
                 <h3 class="text-2xl font-bold text-red-600 mb-4 flex items-center"><i data-lucide="sparkles" class="w-6 h-6 mr-2"></i> Pendaftaran Volunteer Batch 7 (TUTUP)</h3>
                 
                 <p class="text-gray-700 mb-4">
-                    Terima kasih atas antusiasme yang luar biasa! Pendaftaran **Volunteer Batch 7** telah ditutup pada tanggal **30 September 2025**. Kami sangat menghargai semua pendaftar.
+                    Terima kasih atas antusiasme yang luar biasa! Pendaftaran <strong>Volunteer Batch 7</strong> telah ditutup pada tanggal <strong>30 September 2025</strong>. Kami sangat menghargai semua pendaftar.
                 </p>
                 <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mb-6">
                     <p class="font-semibold text-yellow-800 flex items-center">
                          <i data-lucide="clock-2" class="w-5 h-5 mr-2"></i>
-                         Nantikan informasi pembukaan **Batch 8** selanjutnya. Pantau terus *social media* kami di Instagram (@dudukbaca_mlg) agar tidak ketinggalan!
+                         Nantikan informasi pembukaan <strong>Batch 8</strong> selanjutnya. Pantau terus *social media* kami di Instagram (@dudukbaca_mlg) agar tidak ketinggalan!
                     </p>
                 </div>
 
@@ -284,7 +284,7 @@
                         Duduk Baca adalah sebuah gerakan komunitas literasi yang berpusat di Malang. Kami percaya bahwa membaca adalah hak semua orang dan harus dapat diakses di ruang publik. "Duduk Baca" bukan hanya tentang membaca buku, tetapi tentang menciptakan momen tenang ("Duduk") di tengah hiruk pikuk kehidupan, untuk meresapi pengetahuan ("Baca").
                     </p>
                     <p class="text-gray-700 leading-relaxed mb-6">
-                        Kami secara rutin mengadakan **Lapak Baca Mingguan** di Alun-Alun Kota Malang setiap hari Minggu, di mana siapa pun, dari segala usia, dapat datang, duduk, dan membaca buku-buku koleksi kami secara gratis.
+                        Kami secara rutin mengadakan <strong>Lapak Baca Mingguan</strong> di Alun-Alun Kota Malang setiap hari Minggu, di mana siapa pun, dari segala usia, dapat datang, duduk, dan membaca buku-buku koleksi kami secara gratis.
                     </p>
                     <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg">
                         <p class="font-semibold text-yellow-800">Kami menyebut para penggemar dan peminjam buku kami sebagai <span class="text-xl font-extrabold">"BACAWAN"</span>.</p>
@@ -769,9 +769,6 @@
             // Use a fallback random ID for UI display purposes if firebase is missing
             userId = crypto.randomUUID(); 
             document.getElementById('user-id-display').textContent = `User ID: ${userId}`;
-            
-            // PERMINTAAN PENGGUNA: Muat data agenda manual jika Firebase tidak ada
-            mockInitialEvents();
         }
 
         // --- GLOBAL UI & NAVIGATION FUNCTIONS ---
@@ -792,6 +789,9 @@
             }
             // Close mobile menu if open
             document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // PERBAIKAN: Render ulang ikon setiap kali pindah section
+            lucide.createIcons();
         };
 
         // Initialize Lucide Icons
@@ -835,6 +835,13 @@
 
             // Ensure we start at the home screen
             showSection('beranda');
+
+            // PERBAIKAN: Pindahkan cek Firebase ke sini
+            // Cek config firebase dan muat data manual HANYA SETELAH DOM SIAP
+            if (!firebaseConfig) {
+                console.warn("Firebase config missing (from DOM). Loading manual mock events.");
+                mockInitialEvents();
+            }
         });
 
         // Universal Modal Functions
@@ -1235,3 +1242,4 @@
     </script>
 </body>
 </html>
+
