@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -84,6 +83,7 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
+        <!-- Universal Notification Modal -->
         <div id="notification-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[100]">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
                 <div class="mt-3 text-center">
@@ -103,11 +103,16 @@
             </div>
         </div>
 
+        <!-- SECTION: BERANDA / DASHBOARD -->
         <section id="beranda" class="mb-16">
             <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Dashboard Komunitas</h1>
 
+            <!-- Hero Image -->
             <div class="relative bg-gray-100 rounded-xl overflow-hidden shadow-xl mb-12">
-                <img src="https://placehold.co/1200x300/e0f2f1/14b8a6?text=Foto+Bersama+Keluarga+Duduk+Baca" alt="Foto Bersama Komunitas Duduk Baca" class="w-full h-48 object-cover md:h-64">
+                <img src="https://placehold.co/1200x300/e0f2f1/14b8a6?text=Foto+Bersama+Keluarga+Duduk+Baca" 
+                     alt="Foto Bersama Komunitas Duduk Baca" 
+                     class="w-full h-48 object-cover md:h-64"
+                     onerror="this.src='https://placehold.co/1200x300/e0f2f1/14b8a6?text=Foto+Kegiatan+Komunitas'; this.onerror=null;">
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8">
                     <p class="text-base font-semibold text-white/80">Selamat datang di</p>
@@ -124,8 +129,10 @@
                 </div>
             </div>
 
+            <!-- Visi Misi & Statistik -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
+                <!-- Visi Misi -->
                 <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg border border-teal-100">
                     <h3 class="text-2xl font-bold text-teal-600 mb-4 flex items-center"><i data-lucide="eye" class="w-6 h-6 mr-2"></i> Visi & Misi Kami</h3>
                     <div class="space-y-4">
@@ -144,6 +151,7 @@
                     </div>
                 </div>
 
+                <!-- Statistik -->
                 <div class="bg-teal-600 text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
                     <div>
                         <h3 class="text-2xl font-bold mb-3 flex items-center"><i data-lucide="bar-chart-3" class="w-6 h-6 mr-2"></i> Statistik Kami</h3>
@@ -163,6 +171,7 @@
                 </div>
             </div>
 
+            <!-- Agenda Komunitas -->
             <div class="mt-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center"><i data-lucide="calendar-days" class="w-6 h-6 mr-2 text-teal-600"></i> Agenda Komunitas</h3>
                 
@@ -182,21 +191,25 @@
                 </div>
             </div>
             
+            <!-- Berita & Pengumuman -->
             <div class="mt-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center"><i data-lucide="megaphone" class="w-6 h-6 mr-2 text-red-600"></i> Berita & Pengumuman Khusus</h3>
                 <div id="announcements" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Contoh Pengumuman 1 -->
                     <div class="bg-white p-4 rounded-xl shadow-lg border border-red-100">
                         <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded-full">WAWANCARA</span>
                         <p class="font-bold text-gray-800 mt-2 line-clamp-2">Liputan Eksklusif RRI Malang: Peran Komunitas dalam Menjaga Budaya Baca</p>
                         <p class="text-sm text-gray-500 mt-1">20 Oktober 2025</p>
                         <a href="#" target="_blank" class="text-sm text-teal-600 font-medium hover:underline flex items-center mt-2"><i data-lucide="radio" class="w-3 h-3 mr-1"></i> Baca Selengkapnya/Dengarkan</a>
                     </div>
+                    <!-- Contoh Pengumuman 2 -->
                     <div class="bg-white p-4 rounded-xl shadow-lg border border-red-100">
                         <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded-full">KEGIATAN TAMU</span>
                         <p class="font-bold text-gray-800 mt-2 line-clamp-2">Duduk Baca Berpartisipasi di Malam Budaya Sanggar Arek Malang</p>
                         <p class="text-sm text-gray-500 mt-1">12 September 2025</p>
                         <a href="#" target="_blank" class="text-sm text-teal-600 font-medium hover:underline flex items-center mt-2"><i data-lucide="users-2" class="w-3 h-3 mr-1"></i> Dokumentasi Acara</a>
                     </div>
+                    <!-- Contoh Pengumuman 3 -->
                     <div class="bg-white p-4 rounded-xl shadow-lg border border-red-100">
                         <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded-full">PENGUMUMAN</span>
                         <p class="font-bold text-gray-800 mt-2 line-clamp-2">Lapak Baca Pindah Lokasi Sementara Minggu Ini</p>
@@ -206,6 +219,7 @@
                 </div>
             </div>
 
+            <!-- Volunteer Section -->
             <div class="bg-white p-8 rounded-2xl shadow-xl border border-red-100 mt-12">
                 <h3 class="text-2xl font-bold text-red-600 mb-4 flex items-center"><i data-lucide="sparkles" class="w-6 h-6 mr-2"></i> Pendaftaran Volunteer Batch 7 (TUTUP)</h3>
                 
@@ -220,9 +234,11 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Carousel -->
                     <div class="relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 bg-gray-200">
                         <div id="volunteer-carousel" class="w-full h-full">
-                            </div>
+                            <!-- Slides will be injected by JS -->
+                        </div>
                         <button onclick="changeSlide(-1)" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/80 transition z-10">
                             <i data-lucide="chevron-left" class="w-6 h-6"></i>
                         </button>
@@ -231,6 +247,7 @@
                         </button>
                     </div>
 
+                    <!-- Keuntungan Volunteer -->
                     <div>
                         <h4 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2"></i> Keuntungan Jadi Volunteer</h4>
                         <ul class="space-y-3 text-gray-700">
@@ -256,6 +273,7 @@
 
         </section>
         
+        <!-- SECTION: TENTANG KAMI -->
         <section id="tentang" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Tentang Duduk Baca</h2>
 
@@ -292,9 +310,11 @@
             </div>
         </section>
 
+        <!-- SECTION: STRUKTUR KOMUNITAS -->
         <section id="struktur" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Struktur Komunitas Duduk Baca</h2>
 
+            <!-- Founders -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="award" class="w-6 h-6 mr-2"></i> Founder (4 Orang)</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                 <div class="member-card bg-white p-4 rounded-xl text-center">
@@ -319,6 +339,7 @@
                 </div>
             </div>
 
+            <!-- Anggota Inti -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="users" class="w-6 h-6 mr-2"></i> Anggota Inti (Ketua, Wakil, Sekre, Benda)</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-blue-100">
@@ -343,6 +364,7 @@
                 </div>
             </div>
 
+            <!-- Divisi -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="briefcase" class="w-6 h-6 mr-2"></i> Divisi Komunitas</h3>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -391,11 +413,13 @@
             </div>
         </section>
 
+        <!-- SECTION: BUKU DIGITAL (API) -->
         <section id="bukudigital" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Katalog Buku Digital (Integrasi API)</h2>
             <p class="text-gray-600 mb-6">Kami telah mengintegrasikan API dari beberapa penyedia buku digital. Jelajahi ribuan e-book langsung dari sini!</p>
             
             <div id="digital-books-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Mockup Content -->
                 <div class="bg-white p-4 rounded-xl shadow-md text-center">
                     <i data-lucide="cloud-download" class="w-10 h-10 mx-auto mb-2 text-teal-500"></i>
                     <p class="font-semibold">Buku Digital 1</p>
@@ -419,6 +443,7 @@
             </div>
         </section>
 
+        <!-- SECTION: KOLEKSI KOMUNITAS (PEMINJAMAN) -->
         <section id="koleksi" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Koleksi Peminjaman Komunitas</h2>
             
@@ -436,6 +461,7 @@
             <p class="text-gray-600 mb-8">Koleksi buku pribadi anggota komunitas. Bacawan yang terdaftar dapat melakukan *booking* online untuk dipinjam.</p>
             
             <div id="physical-books-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Mockup Buku 1 -->
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 text-center">
                     <img src="https://placehold.co/150x200/f4f1ed/1f2937?text=Cover+Buku" alt="Cover Buku" class="w-full h-auto rounded-lg mb-3">
                     <p class="font-semibold text-gray-800 line-clamp-2">Atomic Habits</p>
@@ -444,6 +470,7 @@
                         Booking Sekarang
                     </button>
                 </div>
+                <!-- Mockup Buku 2 -->
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 text-center">
                     <img src="https://placehold.co/150x200/f4f1ed/1f2937?text=Cover+Buku" alt="Cover Buku" class="w-full h-auto rounded-lg mb-3">
                     <p class="font-semibold text-gray-800 line-clamp-2">Sapiens</p>
@@ -452,6 +479,7 @@
                         Booking Sekarang
                     </button>
                 </div>
+                <!-- Mockup Buku 3 -->
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 text-center">
                     <img src="https://placehold.co/150x200/f4f1ed/1f2937?text=Cover+Buku" alt="Cover Buku" class="w-full h-auto rounded-lg mb-3">
                     <p class="font-semibold text-gray-800 line-clamp-2">Filosofi Teras</p>
@@ -460,6 +488,7 @@
                         Booking Sekarang
                     </button>
                 </div>
+                <!-- Tombol Load More -->
                 <div class="col-span-full text-center mt-6">
                     <button class="px-6 py-3 bg-teal-500 text-white font-semibold rounded-full shadow-lg hover:bg-teal-600 transition duration-300">
                         Jelajahi Semua Koleksi
@@ -467,17 +496,20 @@
                 </div>
             </div>
             
+            <!-- Booking Modal -->
             <div id="booking-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-[90]">
                 <div class="relative top-10 mx-auto p-8 border w-96 shadow-xl rounded-xl bg-white">
                     <h3 class="text-xl font-bold text-teal-600 mb-4">Formulir Booking Buku</h3>
                     <p class="text-gray-600 mb-4">Anda harus Login sebagai Bacawan untuk meminjam. Buku yang akan di-booking:</p>
                     <p id="booking-book-title" class="text-lg font-bold mb-6 text-gray-800"></p>
                     
+                    <!-- Tampilan Jika Belum Login/Daftar -->
                     <div id="booking-status-unauthenticated" class="p-4 bg-red-100 text-red-700 rounded-lg">
                         <p class="font-semibold">Anda Belum Terdaftar/Login!</p>
                         <p class="text-sm mt-1">Silakan <a href="#keanggotaan" class="font-bold underline text-red-800" onclick="closeModal('booking-modal')">Daftar/Login</a> terlebih dahulu sebagai Bacawan.</p>
                     </div>
 
+                    <!-- Tampilan Jika Sudah Login (Data dari DB) -->
                     <div id="booking-status-authenticated" class="hidden">
                         <div class="mb-4">
                             <label class="block text-gray-700 font-medium mb-1">Nama Bacawan</label>
@@ -497,10 +529,12 @@
             </div>
         </section>
 
+        <!-- SECTION: KEANGGOTAAN (DAFTAR/LOGIN) -->
         <section id="keanggotaan" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Keanggotaan Bacawan</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Kartu Registrasi -->
                 <div id="registration-card" class="bg-white p-8 rounded-2xl shadow-xl border border-teal-100">
                     <h3 class="text-2xl font-bold text-teal-600 mb-4 flex items-center"><i data-lucide="user-plus" class="w-6 h-6 mr-2"></i> Daftar Sebagai Bacawan</h3>
                     <p class="text-gray-600 mb-6">Lengkapi data untuk menjadi Bacawan dan mendapatkan ID Peminjaman koleksi.</p>
@@ -531,6 +565,7 @@
                     </form>
                 </div>
 
+                <!-- Kartu Status/Login -->
                 <div id="login-info-card" class="bg-teal-50 p-8 rounded-2xl shadow-xl border border-teal-200">
                     <h3 class="text-2xl font-bold text-teal-700 mb-4 flex items-center"><i data-lucide="log-in" class="w-6 h-6 mr-2"></i> Status / Login Bacawan</h3>
                     
@@ -559,13 +594,15 @@
                 </div>
             </div>
             
-            </section>
+        </section>
         
+        <!-- SECTION: REVIEW BUKU -->
         <section id="reviews" class="mb-16">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Rangkuman Buku Pilihan Komunitas</h2>
             <p class="text-gray-600 mb-6">Ringkasan eksklusif yang ditulis manual oleh Bacawan Komunitas Duduk Baca.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">Sebuah Seni Untuk Bersikap Bodo Amat</h3>
@@ -578,6 +615,7 @@
                     <button class="mt-4 text-teal-600 font-semibold hover:underline">Baca Selengkapnya</button>
                 </div>
                 
+                <!-- Review 2 -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">The Psychology of Money</h3>
@@ -590,6 +628,7 @@
                     <button class="mt-4 text-teal-600 font-semibold hover:underline">Baca Selengkapnya</button>
                 </div>
 
+                <!-- Review 3 -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">Duduk Dulu</h3>
@@ -730,6 +769,9 @@
             // Use a fallback random ID for UI display purposes if firebase is missing
             userId = crypto.randomUUID(); 
             document.getElementById('user-id-display').textContent = `User ID: ${userId}`;
+            
+            // PERMINTAAN PENGGUNA: Muat data agenda manual jika Firebase tidak ada
+            mockInitialEvents();
         }
 
         // --- GLOBAL UI & NAVIGATION FUNCTIONS ---
@@ -756,13 +798,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             // Attach event listeners for navigation
-            document.querySelectorAll('nav a').forEach(link => {
-                if (link.href.includes('#')) {
+            document.querySelectorAll('nav a, footer a').forEach(link => {
+                if (link.href && link.href.includes('#')) {
                     link.addEventListener('click', (e) => {
-                        const targetId = link.href.split('#')[1];
-                        if (sections.includes(targetId)) {
-                            e.preventDefault();
-                            showSection(targetId);
+                        const href = link.getAttribute('href'); // Dapatkan href mentah
+                        if (href) {
+                            const targetId = href.split('#')[1];
+                            if (sections.includes(targetId)) {
+                                e.preventDefault();
+                                showSection(targetId);
+                                window.scrollTo(0, 0); // Scroll ke atas
+                            }
                         }
                     });
                 }
@@ -901,22 +947,28 @@
                     events.push({ id: doc.id, ...doc.data() });
                 });
                 
-                // Sort by date (descending)
-                events.sort((a, b) => new Date(b.date) - new Date(a.date));
+                // --- PERUBAHAN SESUAI PERMINTAAN PENGGUNA ---
+                // Jika database kosong, panggil fungsi mock manual
+                if (events.length === 0) {
+                    console.log("Firestore 'events' collection is empty. Loading manual mock data.");
+                    mockInitialEvents(); // Ini akan memuat dan merender contoh manual
+                } else {
+                    // Jika ada data, urutkan dan render
+                    events.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    renderEvents(events);
+                }
+                // ----------------------------------------------
 
-                renderEvents(events);
             }, (error) => {
                 console.error("Error fetching events:", error);
-                // Jika error, inject mock data
-                if (events.length === 0) {
-                    mockInitialEvents();
-                }
+                // Jika error, inject mock data manual
+                mockInitialEvents();
             });
         };
         
-        // Mock Initial Events function (dipindah untuk dipanggil saat error)
+        // Mock Initial Events function (dipindah untuk dipanggil saat error ATAU DB kosong)
         const mockInitialEvents = () => {
-            // Tentukan tanggal 02 November (Contoh)
+            // Tentukan tanggal 02 November (Contoh) - Berdasarkan waktu sistem 31 Okt 2025
             const nov2nd = new Date(Date.UTC(2025, 10, 2)); // 2 November 2025 (Minggu)
             const oct26th = new Date(Date.UTC(2025, 9, 26)); // 26 Oktober 2025 (Minggu)
 
@@ -950,21 +1002,32 @@
                 }
             ];
             
-            // Render mock events ke UI jika database tidak merespons
+            // Render mock events ke UI
             renderEvents(initialEvents);
 
-            // Jika firebase ada, coba tambahkan ke db (meskipun gagal sebelumnya)
-            if (db) {
+            // Jika firebase ada, coba tambahkan ke db (agar tidak kosong lagi)
+            if (db && eventsColRef) {
                  initialEvents.forEach(event => {
-                    addDoc(eventsColRef, event).catch(e => console.error("Error adding initial event:", e));
-                });
+                     // Cek dulu agar tidak duplikat (meskipun snapshot kosong, mungkin ada race condition)
+                     const mockId = event.title.replace(/\s+/g, '-').toLowerCase(); // Buat ID sederhana
+                     const eventRef = doc(db, `artifacts/${appId}/public/data/events`, mockId);
+                     
+                     getDoc(eventRef).then(docSnap => {
+                         if (!docSnap.exists()) {
+                             setDoc(eventRef, event).catch(e => console.error("Error adding initial event:", e));
+                         }
+                     });
+                 });
             }
         };
 
 
         // Render Events into Dashboard Cards
         const renderEvents = (events) => {
-            const now = new Date();
+            // Gunakan Waktu NYATA dari browser pengguna untuk perbandingan
+            const now = new Date(); 
+            // Set jam ke 00:00:00 untuk perbandingan tanggal yang adil
+            now.setHours(0, 0, 0, 0); 
             
             const mendatangContainer = document.getElementById('agenda-mendatang');
             const berlaluContainer = document.getElementById('agenda-berlalu');
@@ -972,14 +1035,22 @@
             mendatangContainer.innerHTML = '';
             berlaluContainer.innerHTML = '';
 
-            const eventsMendatang = events.filter(e => new Date(e.date) >= now);
-            const eventsBerlalu = events.filter(e => new Date(e.date) < now);
+            const eventsMendatang = events.filter(e => {
+                const eventDate = new Date(e.date + 'T00:00:00Z'); // Asumsikan UTC atau sesuaikan
+                return eventDate >= now;
+            });
+            const eventsBerlalu = events.filter(e => {
+                const eventDate = new Date(e.date + 'T00:00:00Z');
+                return eventDate < now;
+            });
 
             // Reverse order for "mendatang" to show the nearest event first
+            // (karena data asli di-sort descending, yang akan datang jadi terbalik)
             eventsMendatang.reverse();
             
             eventsMendatang.forEach(event => {
-                const eventDateDisplay = new Date(event.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                const eventDate = new Date(event.date + 'T00:00:00Z'); // Asumsikan UTC
+                const eventDateDisplay = eventDate.toLocaleDateString('id-ID', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                 
                 const card = `
                     <div class="p-3 rounded-lg border border-blue-200 bg-blue-50 shadow-sm transition duration-300 hover:shadow-lg flex items-start">
@@ -996,7 +1067,8 @@
             });
 
             eventsBerlalu.forEach(event => {
-                const eventDateDisplay = new Date(event.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                const eventDate = new Date(event.date + 'T00:00:00Z'); // Asumsikan UTC
+                const eventDateDisplay = eventDate.toLocaleDateString('id-ID', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
                 
                 const card = `
                     <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm transition duration-300 hover:shadow-lg">
@@ -1034,7 +1106,7 @@
             
             // Check if user data exists (simulate successful registration)
             const checkBacawanStatus = async () => {
-                if (user && !user.isAnonymous) {
+                if (user && !user.isAnonymous && db) { // Pastikan DB ada
                     const bacawanRef = doc(db, `artifacts/${appId}/public/data/bacawan`, userId);
                     const docSnap = await getDoc(bacawanRef);
                     if (docSnap.exists()) {
@@ -1047,20 +1119,13 @@
                         document.getElementById('booking-status-authenticated').classList.add('hidden');
                     }
                 } else {
-                    // Not authenticated (Anonymous token)
+                    // Not authenticated (Anonymous token) or DB missing
                     document.getElementById('booking-status-unauthenticated').classList.remove('hidden');
                     document.getElementById('booking-status-authenticated').classList.add('hidden');
                 }
             }
 
-            if (db) {
-                checkBacawanStatus();
-            } else {
-                 document.getElementById('booking-status-unauthenticated').classList.remove('hidden');
-                 document.getElementById('booking-status-authenticated').classList.add('hidden');
-            }
-
-
+            checkBacawanStatus();
             document.getElementById('booking-modal').classList.remove('hidden');
         };
 
@@ -1070,6 +1135,11 @@
             
             if (!currentBookingBook || !pickupDate) {
                 showModal('notification-modal', 'Error Booking', 'Mohon lengkapi data peminjaman.', true);
+                return;
+            }
+
+            if (!db) {
+                showModal('notification-modal', 'Error Booking', 'Database tidak terkonfigurasi. Booking gagal.', true);
                 return;
             }
             
@@ -1117,6 +1187,11 @@
                  return;
             }
 
+            if (!db) {
+                showModal('notification-modal', 'Gagal Daftar', 'Database tidak terkonfigurasi. Registrasi gagal.', true);
+                return;
+            }
+
             try {
                 // 1. Create a "registered" user profile (Public data for display/lookup)
                 const bacawanRef = doc(db, `artifacts/${appId}/public/data/bacawan`, userId);
@@ -1126,7 +1201,7 @@
                     await setDoc(bacawanRef, {
                         name: name,
                         email: email,
-                        nik: nik,
+                        nik: nik, // Note: Storing NIK requires careful privacy consideration
                         phone: phone,
                         registrationDate: new Date().toISOString(),
                         role: 'Bacawan',
@@ -1148,7 +1223,8 @@
                     showModal('notification-modal', 'Bacawan Sudah Terdaftar!', `Anda sudah terdaftar sebagai Bacawan dengan ID ${userId}.`, false);
                 }
                 
-                
+                 // Update auth status text jika mendaftar (meskipun ID tidak berubah)
+                 document.getElementById('auth-status').textContent = 'Status: Terdaftar (Bacawan ID)';
 
             } catch (error) {
                 console.error("Registration Error: ", error);
@@ -1159,4 +1235,3 @@
     </script>
 </body>
 </html>
-```
