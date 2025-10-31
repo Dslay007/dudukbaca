@@ -1,17 +1,12 @@
-*Mohon maaf* atas kebingungan yang terjadi. Saya sudah memastikan bahwa kode lengkap yang Anda minta sudah disiapkan.
-
-Karena terjadi kesalahan tampilan saat saya mencoba mengirimkan kode lengkap sebelumnya, saya akan langsung *posting* seluruh isi *file* `dudukbaca.html` versi terakhir yang telah disesuaikan (dengan perbaikan statistik *fallback* dan foto *hero* yang benar).
-
-Berikut adalah kode lengkapnya:
-
-```html:duduk Baca Community Website:dudukbaca.html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duduk Baca | Komunitas Literasi Malang</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for beautiful, modern icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         /* Mengatur font Inter sebagai default */
@@ -55,6 +50,7 @@ Berikut adalah kode lengkapnya:
 </head>
 <body class="antialiased">
 
+    <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -74,6 +70,7 @@ Berikut adalah kode lengkapnya:
                 <button id="menu-button" class="sm:hidden text-gray-500 hover:text-teal-600 focus:outline-none p-2 transition duration-150 ease-in-out"><i data-lucide="menu"></i></button>
             </div>
         </div>
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden sm:hidden px-2 pt-2 pb-3 space-y-1 bg-white border-t">
             <a href="#beranda" class="text-gray-900 hover:bg-teal-50 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
             <a href="#tentang" class="text-gray-900 hover:bg-teal-50 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Tentang Kami</a>
@@ -90,6 +87,7 @@ Berikut adalah kode lengkapnya:
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
+        <!-- Notifikasi (Modal) -->
         <div id="notification-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-[100]">
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
                 <div class="mt-3 text-center">
@@ -109,9 +107,11 @@ Berikut adalah kode lengkapnya:
             </div>
         </div>
 
+        <!-- 1. Beranda / Dashboard (Mengambil inspirasi layout bank) -->
         <section id="beranda" class="mb-16">
             <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Dashboard Komunitas</h1>
 
+            <!-- Top Banner/Hero Section (FOTO KOMUNITAS) -->
             <div class="relative bg-gray-100 rounded-xl overflow-hidden shadow-xl mb-12">
                 <img src="https://placehold.co/1200x300/e0f2f1/14b8a6?text=Foto+Bersama+Keluarga+Duduk+Baca" alt="Foto Bersama Komunitas Duduk Baca" class="w-full h-48 object-cover md:h-64">
                 <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
@@ -130,8 +130,10 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
 
+            <!-- Dashboard Cards (Visi Misi & Stats) -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
+                <!-- Card 1: Visi & Misi -->
                 <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg border border-teal-100">
                     <h3 class="text-2xl font-bold text-teal-600 mb-4 flex items-center"><i data-lucide="eye" class="w-6 h-6 mr-2"></i> Visi & Misi Kami</h3>
                     <div class="space-y-4">
@@ -150,6 +152,7 @@ Berikut adalah kode lengkapnya:
                     </div>
                 </div>
 
+                <!-- Card 2: Statistik Peminjaman (Data Real-time atau Statis) -->
                 <div class="bg-teal-600 text-white p-6 rounded-2xl shadow-xl flex flex-col justify-between">
                     <div>
                         <h3 class="text-2xl font-bold mb-3 flex items-center"><i data-lucide="bar-chart-3" class="w-6 h-6 mr-2"></i> Statistik Kami</h3>
@@ -158,39 +161,78 @@ Berikut adalah kode lengkapnya:
                     <div class="mt-4 space-y-3">
                         <div class="flex justify-between items-center bg-teal-700/70 p-3 rounded-xl">
                             <span class="font-medium">Total Peminjaman:</span>
-                            <span id="stat-borrowings" class="text-3xl font-extrabold">1,250</span> </div>
+                            <span id="stat-borrowings" class="text-3xl font-extrabold">1,250</span> <!-- Fallback Statis -->
+                        </div>
                         <div class="flex justify-between items-center bg-teal-700/70 p-3 rounded-xl">
                             <span class="font-medium">Total Bacawan Terdaftar:</span>
-                            <span id="stat-members" class="text-3xl font-extrabold">450</span> </div>
+                            <span id="stat-members" class="text-3xl font-extrabold">450</span> <!-- Fallback Statis -->
+                        </div>
                         <div class="flex justify-between items-center bg-teal-700/70 p-3 rounded-xl">
                             <span class="font-medium">Total Koleksi Buku Fisik:</span>
-                            <span id="stat-books" class="text-3xl font-extrabold">800</span> </div>
+                            <span id="stat-books" class="text-3xl font-extrabold">800</span> <!-- Fallback Statis -->
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Agenda Events Section -->
             <div class="mt-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center"><i data-lucide="calendar-days" class="w-6 h-6 mr-2 text-teal-600"></i> Agenda Komunitas</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Agenda Mendatang -->
                     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500">
                         <h4 class="text-xl font-bold text-blue-600 mb-4 flex items-center"><i data-lucide="calendar-check" class="w-5 h-5 mr-2"></i> Agenda Mendatang</h4>
                         <div id="agenda-mendatang" class="space-y-4 text-gray-700 overflow-y-scroll max-h-96">
-                            <p class="text-gray-500">Memuat agenda...</p>
+                            <!-- PERBAIKAN: Menambahkan contoh statis -->
+                            <div class="p-3 rounded-lg border border-blue-200 bg-blue-50 shadow-sm flex items-start">
+                                <i data-lucide="calendar-check" class="w-5 h-5 text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                <div>
+                                    <p class="text-sm font-bold text-blue-700">Minggu, 2 November 2025</p>
+                                    <p class="font-semibold text-gray-800">Lapak Baca Mingguan & Diskusi Buku Pilihan</p>
+                                    <p class="text-xs text-gray-500 line-clamp-2">Alun-Alun Kota Malang - Lapak baca rutin. Minggu ini ada sesi singkat bedah buku 'Filosofi Teras'.</p>
+                                    <a href="https://bit.ly/poster-diskusi-nov" target="_blank" class="text-xs text-red-500 font-medium hover:underline flex items-center mt-1"><i data-lucide="image" class="w-3 h-3 mr-1"></i> Lihat Poster Acara</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!-- Agenda Sudah Berlalu -->
                     <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-gray-500">
                         <h4 class="text-xl font-bold text-gray-600 mb-4 flex items-center"><i data-lucide="history" class="w-5 h-5 mr-2"></i> Agenda Sudah Berlalu</h4>
                         <div id="agenda-berlalu" class="space-y-4 text-gray-700 overflow-y-scroll max-h-96">
-                            <p class="text-gray-500">Memuat agenda...</p>
+                            <!-- PERBAIKAN: Menambahkan contoh statis -->
+                            <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+                                <div class="flex items-start mb-1">
+                                     <i data-lucide="check-circle" class="w-5 h-5 text-gray-500 mt-1 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-sm font-bold text-gray-600">Minggu, 26 Oktober 2025</p>
+                                        <p class="font-semibold text-gray-800">Lapak Baca Mingguan & Perkenalan Bacawan Baru</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 line-clamp-1 mb-2">Lokasi: Alun-Alun Kota Malang - Lapak baca rutin. Sambutan hangat untuk anggota Bacawan yang baru bergabung!</p>
+                                <a href="https://bit.ly/doc-lapak-okt-26" target="_blank" class="text-xs text-teal-600 font-medium hover:underline flex items-center"><i data-lucide="image" class="w-3 h-3 mr-1"></i> Lihat Dokumentasi</a>
+                            </div>
+                            <div class="p-3 rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+                                <div class="flex items-start mb-1">
+                                     <i data-lucide="check-circle" class="w-5 h-5 text-gray-500 mt-1 mr-3 flex-shrink-0"></i>
+                                    <div>
+                                        <p class="text-sm font-bold text-gray-600">Rabu, 15 Oktober 2025</p>
+                                        <p class="font-semibold text-gray-800">Workshop Content Creator Literasi</p>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 line-clamp-1 mb-2">Lokasi: Balai Kota - Pelatihan singkat untuk tim Content Creator divisi Social Media.</p>
+                                <a href="https://bit.ly/doc-workshop-literasi" target="_blank" class="text-xs text-teal-600 font-medium hover:underline flex items-center"><i data-lucide="image" class="w-3 h-3 mr-1"></i> Lihat Dokumentasi</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Berita & Pengumuman Section -->
             <div class="mt-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center"><i data-lucide="megaphone" class="w-6 h-6 mr-2 text-red-600"></i> Berita & Pengumuman Khusus</h3>
                 <div id="announcements" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Contoh Berita -->
                     <div class="bg-white p-4 rounded-xl shadow-lg border border-red-100">
                         <span class="text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded-full">WAWANCARA</span>
                         <p class="font-bold text-gray-800 mt-2 line-clamp-2">Liputan Eksklusif RRI Malang: Peran Komunitas dalam Menjaga Budaya Baca</p>
@@ -212,23 +254,30 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
 
+            <!-- Volunteer Batch Info (Dipindahkan dari Keanggotaan) -->
             <div class="bg-white p-8 rounded-2xl shadow-xl border border-red-100 mt-12">
                 <h3 class="text-2xl font-bold text-red-600 mb-4 flex items-center"><i data-lucide="sparkles" class="w-6 h-6 mr-2"></i> Pendaftaran Volunteer Batch 7 (TUTUP)</h3>
                 
+                <!-- PERBAIKAN: Mengganti ** dengan <strong> -->
                 <p class="text-gray-700 mb-4">
-                    Terima kasih atas antusiasme yang luar biasa! Pendaftaran **Volunteer Batch 7** telah ditutup pada tanggal **30 September 2025**. Kami sangat menghargai semua pendaftar.
+                    Terima kasih atas antusiasme yang luar biasa! Pendaftaran <strong class="text-gray-800">Volunteer Batch 7</strong> telah ditutup pada tanggal <strong class="text-gray-800">30 September 2025</strong>. Kami sangat menghargai semua pendaftar.
                 </p>
                 <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mb-6">
                     <p class="font-semibold text-yellow-800 flex items-center">
                          <i data-lucide="clock-2" class="w-5 h-5 mr-2"></i>
-                         Nantikan informasi pembukaan **Batch 8** selanjutnya. Pantau terus *social media* kami di Instagram (@dudukbaca_mlg) agar tidak ketinggalan!
+                         <!-- PERBAIKAN: Mengganti ** dengan <strong> dan * dengan <em> -->
+                         Nantikan informasi pembukaan <strong class="text-yellow-900">Batch 8</strong> selanjutnya. Pantau terus <em class="italic">social media</em> kami di Instagram (@dudukbaca_mlg) agar tidak ketinggalan!
                     </p>
                 </div>
 
+                <!-- Volunteer Highlight Carousel -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Carousel Display -->
                     <div class="relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 bg-gray-200">
                         <div id="volunteer-carousel" class="w-full h-full">
-                            </div>
+                            <!-- Carousel items will be injected by JavaScript -->
+                        </div>
+                        <!-- Navigation Buttons -->
                         <button onclick="changeSlide(-1)" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/80 transition z-10">
                             <i data-lucide="chevron-left" class="w-6 h-6"></i>
                         </button>
@@ -237,6 +286,7 @@ Berikut adalah kode lengkapnya:
                         </button>
                     </div>
 
+                    <!-- Benefits List -->
                     <div>
                         <h4 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2"></i> Keuntungan Jadi Volunteer</h4>
                         <ul class="space-y-3 text-gray-700">
@@ -249,7 +299,8 @@ Berikut adalah kode lengkapnya:
                                 <p><span class="font-semibold">Relasi Komunitas:</span> Membangun jaringan dengan sesama pegiat literasi dan aktivis.</p>
                             </li>
                             <li class="flex items-start">
-                                <i data-lucide="badge-check" class="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <p><span class="font-semibold">Sertifikat Resmi:</span> Mendapatkan sertifikat keanggotaan/kontribusi komunitas.</p>
+                                <i data-lucide="badge-check" class="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0"></i> <!-- Ikon Sertifikat Resmi diperbarui -->
+                                <p><span class="font-semibold">Sertifikat Resmi:</span> Mendapatkan sertifikat keanggotaan/kontribusi komunitas.</p>
                             </li>
                             <li class="flex items-start">
                                 <i data-lucide="handshake" class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0"></i>
@@ -262,6 +313,7 @@ Berikut adalah kode lengkapnya:
 
         </section>
         
+        <!-- 2. Tentang Kami (Apa itu Duduk Baca) -->
         <section id="tentang" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Tentang Duduk Baca</h2>
 
@@ -298,11 +350,15 @@ Berikut adalah kode lengkapnya:
             </div>
         </section>
 
+        <!-- 2.5 Struktur Komunitas -->
         <section id="struktur" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Struktur Komunitas Duduk Baca</h2>
 
+            <!-- Founder Section -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="award" class="w-6 h-6 mr-2"></i> Founder (4 Orang)</h3>
+            <!-- Di HP: 2 kolom, Tablet/Desktop: 4 kolom -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <!-- Mock Founder Cards -->
                 <div class="member-card bg-white p-4 rounded-xl text-center">
                     <img src="https://placehold.co/100x100/14b8a6/ffffff?text=F1" alt="Founder 1" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-4 border-teal-200">
                     <p class="font-bold text-gray-800">Founder 1</p>
@@ -325,8 +381,11 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
 
+            <!-- Inti Section -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="users" class="w-6 h-6 mr-2"></i> Anggota Inti (Ketua, Wakil, Sekre, Benda)</h3>
+            <!-- Di HP: 2 kolom, Tablet/Desktop: 4 kolom -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <!-- Mock Inti Cards -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-blue-100">
                     <img src="https://placehold.co/100x100/3b82f6/ffffff?text=KETUA" alt="Ketua" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover border-4 border-blue-400">
                     <p class="font-bold text-gray-800">Nama Ketua</p>
@@ -349,10 +408,13 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
 
+            <!-- Divisi Section -->
             <h3 class="text-2xl font-bold text-teal-600 mb-6 flex items-center"><i data-lucide="briefcase" class="w-6 h-6 mr-2"></i> Divisi Komunitas</h3>
             
+            <!-- Di HP: 2 kolom, Tablet: 3 kolom, Desktop: 6 kolom -->
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                 
+                <!-- Divisi 1: Event & Collaboration (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="calendar-plus" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Event & Collaboration</p>
@@ -360,6 +422,7 @@ Berikut adalah kode lengkapnya:
                     <p class="text-xs text-gray-500 mb-1">Wakil Koordinator</p>
                 </div>
 
+                <!-- Divisi 2: Content Creator (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="video" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Content Creator</p>
@@ -367,6 +430,7 @@ Berikut adalah kode lengkapnya:
                     <p class="text-xs text-gray-500 mb-1">Wakil Koordinator</p>
                 </div>
 
+                <!-- Divisi 3: Internal (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="settings-2" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Internal</p>
@@ -374,6 +438,7 @@ Berikut adalah kode lengkapnya:
                     <p class="text-xs text-gray-500 mb-1">Wakil Koordinator</p>
                 </div>
 
+                <!-- Divisi 4: Social Media (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="instagram" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Social Media</p>
@@ -381,6 +446,7 @@ Berikut adalah kode lengkapnya:
                     <p class="text-xs text-gray-500 mb-1">Wakil Koordinator</p>
                 </div>
 
+                <!-- Divisi 5: Finance & Marketing (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="wallet" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Finance & Marketing</p>
@@ -388,6 +454,7 @@ Berikut adalah kode lengkapnya:
                     <p class="text-xs text-gray-500 mb-1">Wakil Koordinator</p>
                 </div>
 
+                <!-- Divisi 6: Administrasi Buku (Koordinator & Wakil) -->
                 <div class="member-card bg-white p-4 rounded-xl text-center border border-teal-100">
                     <i data-lucide="book-check" class="w-8 h-8 text-teal-500 mx-auto mb-2"></i>
                     <p class="font-bold text-gray-800 mb-2">Administrasi Buku</p>
@@ -397,11 +464,13 @@ Berikut adalah kode lengkapnya:
             </div>
         </section>
 
+        <!-- 3. Buku Digital (API Integration Mockup) -->
         <section id="bukudigital" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Katalog Buku Digital (Integrasi API)</h2>
             <p class="text-gray-600 mb-6">Kami telah mengintegrasikan API dari beberapa penyedia buku digital. Jelajahi ribuan e-book langsung dari sini!</p>
             
             <div id="digital-books-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Placeholder untuk hasil API -->
                 <div class="bg-white p-4 rounded-xl shadow-md text-center">
                     <i data-lucide="cloud-download" class="w-10 h-10 mx-auto mb-2 text-teal-500"></i>
                     <p class="font-semibold">Buku Digital 1</p>
@@ -425,9 +494,11 @@ Berikut adalah kode lengkapnya:
             </div>
         </section>
 
+        <!-- 4. Koleksi Duduk Baca (Peminjaman Fisik) -->
         <section id="koleksi" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Koleksi Peminjaman Komunitas</h2>
             
+            <!-- Statistic Card for Physical Books - Menggunakan ID lama (stat-books) yang kini sudah ada di Dashboard -->
             <div class="bg-teal-50 border border-teal-200 p-6 rounded-2xl shadow-md mb-8 flex items-center justify-between">
                 <div class="flex items-center">
                     <i data-lucide="book-open-text" class="w-10 h-10 text-teal-600 mr-4"></i>
@@ -442,6 +513,7 @@ Berikut adalah kode lengkapnya:
             <p class="text-gray-600 mb-8">Koleksi buku pribadi anggota komunitas. Bacawan yang terdaftar dapat melakukan *booking* online untuk dipinjam.</p>
             
             <div id="physical-books-list" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Contoh Buku Koleksi -->
                 <div class="bg-white p-4 rounded-xl shadow-lg border border-gray-100 text-center">
                     <img src="https://placehold.co/150x200/f4f1ed/1f2937?text=Cover+Buku" alt="Cover Buku" class="w-full h-auto rounded-lg mb-3">
                     <p class="font-semibold text-gray-800 line-clamp-2">Atomic Habits</p>
@@ -466,6 +538,7 @@ Berikut adalah kode lengkapnya:
                         Booking Sekarang
                     </button>
                 </div>
+                <!-- Tambahkan tombol untuk melihat lebih banyak koleksi -->
                 <div class="col-span-full text-center mt-6">
                     <button class="px-6 py-3 bg-teal-500 text-white font-semibold rounded-full shadow-lg hover:bg-teal-600 transition duration-300">
                         Jelajahi Semua Koleksi
@@ -473,6 +546,7 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
             
+            <!-- Booking Modal (Hidden by default) -->
             <div id="booking-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-75 overflow-y-auto h-full w-full z-[90]">
                 <div class="relative top-10 mx-auto p-8 border w-96 shadow-xl rounded-xl bg-white">
                     <h3 class="text-xl font-bold text-teal-600 mb-4">Formulir Booking Buku</h3>
@@ -503,10 +577,12 @@ Berikut adalah kode lengkapnya:
             </div>
         </section>
 
+        <!-- 5. Keanggotaan (Daftar/Login Bacawan) -->
         <section id="keanggotaan" class="mb-16 hidden">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Keanggotaan Bacawan</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Card Pendaftaran Bacawan -->
                 <div id="registration-card" class="bg-white p-8 rounded-2xl shadow-xl border border-teal-100">
                     <h3 class="text-2xl font-bold text-teal-600 mb-4 flex items-center"><i data-lucide="user-plus" class="w-6 h-6 mr-2"></i> Daftar Sebagai Bacawan</h3>
                     <p class="text-gray-600 mb-6">Lengkapi data untuk menjadi Bacawan dan mendapatkan ID Peminjaman koleksi.</p>
@@ -537,6 +613,7 @@ Berikut adalah kode lengkapnya:
                     </form>
                 </div>
 
+                <!-- Card Login/Status Bacawan -->
                 <div id="login-info-card" class="bg-teal-50 p-8 rounded-2xl shadow-xl border border-teal-200">
                     <h3 class="text-2xl font-bold text-teal-700 mb-4 flex items-center"><i data-lucide="log-in" class="w-6 h-6 mr-2"></i> Status / Login Bacawan</h3>
                     
@@ -548,6 +625,7 @@ Berikut adalah kode lengkapnya:
                             <p id="user-id-display" class="text-sm font-mono break-all text-teal-800">Memuat...</p>
                         </div>
                         
+                        <!-- Form Mockup Login -->
                         <div class="pt-4 border-t border-teal-200">
                             <h4 class="font-bold text-teal-700 mb-3">Verifikasi Login (Mockup)</h4>
                              <p class="text-sm text-gray-600 mb-3">Gunakan ID Peminjaman Anda untuk masuk ke sistem verifikasi.</p>
@@ -565,13 +643,15 @@ Berikut adalah kode lengkapnya:
                 </div>
             </div>
             
-            </section>
+        </section>
         
+        <!-- 6. Rangkuman/Review Buku (Green Box) -->
         <section id="reviews" class="mb-16">
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Rangkuman Buku Pilihan Komunitas</h2>
             <p class="text-gray-600 mb-6">Ringkasan eksklusif yang ditulis manual oleh Bacawan Komunitas Duduk Baca.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contoh Review 1 (Mengambil inspirasi warna hijau) -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">Sebuah Seni Untuk Bersikap Bodo Amat</h3>
@@ -584,6 +664,7 @@ Berikut adalah kode lengkapnya:
                     <button class="mt-4 text-teal-600 font-semibold hover:underline">Baca Selengkapnya</button>
                 </div>
                 
+                <!-- Contoh Review 2 -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">The Psychology of Money</h3>
@@ -596,6 +677,7 @@ Berikut adalah kode lengkapnya:
                     <button class="mt-4 text-teal-600 font-semibold hover:underline">Baca Selengkapnya</button>
                 </div>
 
+                <!-- Contoh Review 3 -->
                 <div class="review-box p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-xl font-bold text-gray-800">Duduk Dulu</h3>
@@ -612,6 +694,7 @@ Berikut adalah kode lengkapnya:
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -650,6 +733,7 @@ Berikut adalah kode lengkapnya:
         </div>
     </footer>
 
+    <!-- Script Section: Firebase & Logic -->
     <script type="module">
         // --- FIREBASE INITIALIZATION ---
         // Global variables are provided by the Canvas environment
@@ -736,6 +820,8 @@ Berikut adalah kode lengkapnya:
             // Use a fallback random ID for UI display purposes if firebase is missing
             userId = crypto.randomUUID(); 
             document.getElementById('user-id-display').textContent = `User ID: ${userId}`;
+            // PERBAIKAN: Panggil mock initial events jika firebase tidak ada
+            mockInitialEvents();
         }
 
         // --- GLOBAL UI & NAVIGATION FUNCTIONS ---
@@ -909,19 +995,34 @@ Berikut adalah kode lengkapnya:
                 
                 // Sort by date (descending)
                 events.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                renderEvents(events);
+                
+                // Hanya render jika ada data dari Firebase
+                if (events.length > 0) {
+                    renderEvents(events);
+                } else {
+                    // Jika Firebase kosong, panggil mock data
+                    mockInitialEvents();
+                }
             }, (error) => {
                 console.error("Error fetching events:", error);
                 // Jika error, inject mock data
-                if (events.length === 0) {
-                    mockInitialEvents();
-                }
+                mockInitialEvents();
             });
         };
         
         // Mock Initial Events function (dipindah untuk dipanggil saat error)
         const mockInitialEvents = () => {
+            // Fungsi ini sekarang hanya dipanggil jika Firebase gagal atau kosong
+            // Jika HTML sudah diisi statis, kita tidak perlu melakukan apa-apa lagi
+            // kecuali jika kita ingin *menambahkan* data mock ke DB
+            
+            // Cek apakah data statis sudah ada, jika sudah, tidak perlu render ulang
+            const mendatangContainer = document.getElementById('agenda-mendatang');
+            if (mendatangContainer.children.length > 1) { // Lebih dari 1 jika ada fallback <p>
+                console.log("Static agenda already rendered. Skipping mock render.");
+                return;
+            }
+            
             // Tentukan tanggal 02 November (Contoh)
             const nov2nd = new Date(Date.UTC(2025, 10, 2)); // 2 November 2025 (Minggu)
             const oct26th = new Date(Date.UTC(2025, 9, 26)); // 26 Oktober 2025 (Minggu)
@@ -956,12 +1057,14 @@ Berikut adalah kode lengkapnya:
                 }
             ];
             
-            // Render mock events ke UI jika database tidak merespons
+            // Render mock events ke UI HANYA JIKA Firebase gagal DAN HTML kosong
             renderEvents(initialEvents);
 
             // Jika firebase ada, coba tambahkan ke db (meskipun gagal sebelumnya)
-            if (db) {
+            if (db && eventsColRef) {
                  initialEvents.forEach(event => {
+                    // Coba tambahkan (ini mungkin akan membuat duplikat jika dijalankan berkali-kali,
+                    // tapi untuk mock data ini tidak masalah)
                     addDoc(eventsColRef, event).catch(e => console.error("Error adding initial event:", e));
                 });
             }
@@ -1165,4 +1268,4 @@ Berikut adalah kode lengkapnya:
     </script>
 </body>
 </html>
-```
+
