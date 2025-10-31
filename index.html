@@ -37,6 +37,15 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
         }
+        /* Style untuk Carousel */
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -435,7 +444,7 @@
             <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-8 border-b pb-2">Keanggotaan Bacawan</h2>
             <p id="auth-status" class="text-lg font-semibold text-gray-700 mb-6">Status: Tidak Terautentikasi</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
                 <div id="registration-card" class="bg-white p-8 rounded-2xl shadow-xl border border-teal-100">
                     <h3 class="text-2xl font-bold text-teal-600 mb-4 flex items-center"><i data-lucide="user-plus" class="w-6 h-6 mr-2"></i> Daftar Sebagai Bacawan</h3>
                     <p class="text-gray-600 mb-6">Daftar untuk mendapatkan akses peminjaman koleksi fisik dan info eksklusif.</p>
@@ -463,6 +472,61 @@
                     <p class="mt-4 text-sm text-teal-800">
                         Bacawan akan menggunakan ID ini untuk memverifikasi peminjaman koleksi.
                     </p>
+                </div>
+            </div>
+            
+            <!-- Tambahan: Volunteer Batch Info -->
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-red-100 mt-10">
+                <h3 class="text-2xl font-bold text-red-600 mb-4 flex items-center"><i data-lucide="sparkles" class="w-6 h-6 mr-2"></i> Pendaftaran Volunteer Batch 7 (TUTUP)</h3>
+                
+                <p class="text-gray-700 mb-4">
+                    Terima kasih atas antusiasme yang luar biasa! Pendaftaran **Volunteer Batch 7** telah ditutup pada tanggal **30 September 2025**. Kami sangat menghargai semua pendaftar.
+                </p>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mb-6">
+                    <p class="font-semibold text-yellow-800 flex items-center">
+                         <i data-lucide="clock-2" class="w-5 h-5 mr-2"></i>
+                         Nantikan informasi pembukaan **Batch 8** selanjutnya. Pantau terus *social media* kami di Instagram (@dudukbaca_mlg) agar tidak ketinggalan!
+                    </p>
+                </div>
+
+                <!-- Volunteer Highlight Carousel -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Carousel Display -->
+                    <div class="relative overflow-hidden rounded-xl shadow-lg h-64 md:h-80 bg-gray-200">
+                        <div id="volunteer-carousel" class="w-full h-full">
+                            <!-- Carousel items will be injected by JavaScript -->
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <button onclick="changeSlide(-1)" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/80 transition z-10">
+                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                        </button>
+                        <button onclick="changeSlide(1)" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/80 transition z-10">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <!-- Benefits List -->
+                    <div>
+                        <h4 class="text-xl font-bold text-teal-600 mb-3 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2"></i> Keuntungan Jadi Volunteer</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-yellow-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <p><span class="font-semibold">Literasi Sosial:</span> Berkontribusi langsung dalam peningkatan minat baca di Malang.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="network" class="w-5 h-5 text-teal-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <p><span class="font-semibold">Relasi Komunitas:</span> Membangun jaringan dengan sesama pegiat literasi dan aktivis.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="certificate" class="w-5 h-5 text-blue-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <p><span class="font-semibold">Sertifikat Resmi:</span> Mendapatkan sertifikat keanggotaan/kontribusi komunitas.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="handshake" class="w-5 h-5 text-green-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <p><span class="font-semibold">Akses Buku Eksklusif:</span> Hak pinjam koleksi pribadi lebih mudah.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -570,13 +634,13 @@
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
         let app, db, auth, userId = null;
-        let eventsColRef = null; // PERBAIKAN 1: Inisialisasi secara global
+        let eventsColRef = null; 
 
         if (firebaseConfig) {
             app = initializeApp(firebaseConfig);
             db = getFirestore(app);
             auth = getAuth(app);
-            eventsColRef = collection(db, `artifacts/${appId}/public/data/events`); // PERBAIKAN 1: Inisialisasi di sini
+            eventsColRef = collection(db, `artifacts/${appId}/public/data/events`); 
             
             // Initial Authentication
             const setupAuth = async () => {
@@ -659,6 +723,9 @@
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
 
+            // Setup Carousel on DOM load
+            initCarousel();
+
             // Ensure we start at the home screen
             showSection('beranda');
         });
@@ -703,6 +770,46 @@
             showModal('notification-modal', 'Info API', 'Fungsi API buku digital berhasil dipanggil. Di aplikasi nyata, data e-book akan muncul di sini.');
         };
 
+        // --- CAROUSEL LOGIC ---
+        let currentSlide = 0;
+        const slidesData = [
+            { img: "https://placehold.co/800x600/14b8a6/ffffff?text=Volunteer+Activity+1", caption: "Sesi Diskusi Lapangan Volunteer Batch 7" },
+            { img: "https://placehold.co/800x600/0f766e/ffffff?text=Volunteer+Activity+2", caption: "Pengorganisasian Buku Koleksi Komunitas" },
+            { img: "https://placehold.co/800x600/0d9488/ffffff?text=Volunteer+Activity+3", caption: "Foto Bersama Volunteer di Lapak Alun-Alun" },
+            { img: "https://placehold.co/800x600/042f2e/ffffff?text=Volunteer+Activity+4", caption: "Pelatihan Dasar Penulisan Review Buku" },
+        ];
+
+        const initCarousel = () => {
+            const carouselContainer = document.getElementById('volunteer-carousel');
+            carouselContainer.innerHTML = slidesData.map((slide, index) => `
+                <div class="carousel-item absolute inset-0 h-full w-full ${index === 0 ? 'active' : ''}">
+                    <img src="${slide.img}" alt="${slide.caption}" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 w-full bg-black/50 text-white p-3 text-sm font-semibold">${slide.caption}</div>
+                </div>
+            `).join('');
+            showSlide(0);
+        };
+
+        const showSlide = (n) => {
+            const slides = document.querySelectorAll('#volunteer-carousel .carousel-item');
+            if (slides.length === 0) return;
+
+            if (n >= slides.length) { currentSlide = 0 } 
+            else if (n < 0) { currentSlide = slides.length - 1 }
+            else { currentSlide = n }
+
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+        };
+
+        window.changeSlide = (n) => {
+            showSlide(currentSlide + n);
+        };
+
         // --- FIREBASE DATA FUNCTIONS ---
         const fetchData = () => {
             if (!db || !userId) return;
@@ -717,10 +824,9 @@
                     document.getElementById('stat-books').textContent = stats.totalBooks.toLocaleString('id-ID');
                     // Menggunakan ID stat-books-koleksi untuk menampilkan juga di section Koleksi
                     const statBooksKoleksi = document.getElementById('stat-books-koleksi');
-                    if (statBooksKoleksi) { // PERBAIKAN 2: Tambahkan null check
+                    if (statBooksKoleksi) { 
                         statBooksKoleksi.textContent = stats.totalBooks.toLocaleString('id-ID');
                     }
-                    // Menghilangkan stat-events karena metriknya dikembalikan ke stat-books di HTML
                 } else {
                     // Initialize or mock data if not exists
                     setDoc(statsRef, { totalBorrowings: 1250, totalMembers: 450, totalBooks: 800 }, { merge: true }); // Dihapus totalEvents
@@ -730,7 +836,6 @@
             });
 
             // 2. Fetch & Listen to EVENTS (Agenda)
-            // eventsColRef sudah diinisialisasi secara global
             const q = query(eventsColRef); 
             
             onSnapshot(q, (snapshot) => {
@@ -840,13 +945,6 @@
                 initialEvents.forEach(event => {
                     addDoc(eventsColRef, event).catch(e => console.error("Error adding initial event:", e));
                 });
-
-                // Update total events stat (dihapus karena stat-events dihapus dari HTML)
-                // statsRef sudah didefinisikan di fetchData, tapi kita perlu memuatnya lagi untuk memastikan
-                // const statsRef = doc(db, `artifacts/${appId}/public/data/stats`, "communityStats");
-                // updateDoc(statsRef, {
-                //     totalEvents: initialEvents.length
-                // }).catch(e => console.error("Error updating initial total events:", e));
             }
 
             lucide.createIcons(); // Re-render icons after adding content
